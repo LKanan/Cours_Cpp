@@ -15,7 +15,7 @@ Donc, la deuxième ligne simplifie l'écriture du code, mais elle doit être uti
 3. **`cout`** commande l'affichage d'un message à l'écran.
 4. **`endl`** crée un retour à la ligne dans la console.
 
-Ex: `cout << "Hello world!" << endl;`
+Eg: `cout << "Hello world!" << endl;`
 
 ## 2. Déclarez une variable
 
@@ -30,4 +30,12 @@ _`TYPE NOM(VALEUR);`_
 ## 3. Utilisez les références
 La référence d'une variable, c'est un peu comme si on donnait un surnom à une variable en plus de son nom normal. On parle parfois d'alias, mais le mot correct en C++ est référence.  
 On a une seule case mémoire, mais deux étiquettes qui lui sont accrochées.
-Au niveau du code, on utilise une esperluette **( & )** pour déclarer une référence sur une variable :
+Au niveau du code, on utilise une esperluette **( & )** pour déclarer une référence sur une variable  
+Eg: 
+```cpp
+int ageUtilisateur(16);  //Déclaration d'une variable.
+
+int& maVariable(ageUtilisateur); //Déclaration d'une référence nommée maVariable qui est accrochée à la variable ageUtilisateur
+```
+**La référence doit impérativement être du même type que la variable à laquelle elle est accrochée ! Un int&  ne peut faire référence qu'à un int  , de même qu'un string& ne peut être associé qu'à une variable de type string.  
+Une fois qu'elle a été déclarée, on peut manipuler la référence comme si on manipulait la variable elle-même. Il n'y a aucune différence entre les deux.**
