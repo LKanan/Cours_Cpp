@@ -97,5 +97,5 @@ Pour utiliser une fonction mathématique, on écrit le nom de la fonction suivi,
 `resultat = sqrt(valeur);`
 2. **La fonction puissance**  
 `resultat = pow(valeur, b);` ceci est equivalent à  **valeur^b**
-1. **La fonction mathematiques principales**  
+1. **Les fonctions mathematiques principales**  
 ![Quelques fonctions mathematiques principales](quelques_fonctions_mathematiques_principales.png)
