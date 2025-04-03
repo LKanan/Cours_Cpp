@@ -99,3 +99,20 @@ Pour utiliser une fonction mathématique, on écrit le nom de la fonction suivi,
 `resultat = pow(valeur, b);` ceci est equivalent à  **valeur^b**
 1. **Les fonctions mathematiques principales**  
 ![Quelques fonctions mathematiques principales](quelques_fonctions_mathematiques_principales.png)
+## 6. le passage des parametres par référence
+Ici lorsque pour une fonctions dans sa définition ses parametres sont des réferences, à don appelle, ses argument ne seront pas des réferences des variables mais plutot les variables et la fonction elle meme va se charger de recuperer leurs reférences.
+Eg :  
+```cpp
+int ajouteDeux(int& a){
+    a+=2;
+
+    return a;
+}
+
+// Et à l'appelle de la fonction
+int main(){
+    int a (5);
+
+    ajoutDeux(a);
+}
+```
