@@ -21,7 +21,7 @@ Eg: `cout << "Hello world!" << endl;`
 
 Pour déclarer une variable, il faut écrire un code qui indique, dans l'ordre :
 
-1.Son type.  
+1. Son type.  
 2. Son nom.  
 3. Et la valeur qu'elle contient :
 
@@ -89,3 +89,13 @@ Il faut remplacer cin `>> nomUtilisateur;` par `getline(cin, nomUtilisateur)`
 **Si l'on utilise d'abord `cin >>` puis `getline()`  , par exemple pour demander la valeur de pi avant de demander le nom, le code ne fonctionne pas. L'ordinateur ne demande pas son nom à l'utilisateur, et affiche n'importe quoi.
 Pour pallier ce problème, il faut ajouter la ligne `cin.ignore()`  après l'utilisation des chevrons**  
 Le `getline()` est utilisé pour la variable de type **string** qui va prendre la valeur qui contient des espaces.
+## 5. Utilisez des fonctions mathématiques
+Pour utiliser une fonction mathématique, on écrit le nom de la fonction suivi, entre parenthèses, de la valeur à calculer. On utilise alors l'affectation pour stocker le résultat dans une variable :
+
+**resultat = fonction(valeur);**
+1. **La fonction racine carrée**  
+`resultat = sqrt(valeur);`
+2. **La fonction puissance**  
+`resultat = pow(valeur, b);` ceci est equivalent à  **valeur^b**
+1. **La fonction racine carrée**  
+![Quelques fonctions mathematiques principales](quelques_fonctions_mathematiques_principales.png)
