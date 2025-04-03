@@ -26,3 +26,8 @@ Pour déclarer une variable, il faut écrire un code qui indique, dans l'ordre :
 3. Et la valeur qu'elle contient :
 
 _`TYPE NOM(VALEUR);`_
+
+## 3. Utilisez les références
+La référence d'une variable, c'est un peu comme si on donnait un surnom à une variable en plus de son nom normal. On parle parfois d'alias, mais le mot correct en C++ est référence.  
+On a une seule case mémoire, mais deux étiquettes qui lui sont accrochées.
+Au niveau du code, on utilise une esperluette **( & )** pour déclarer une référence sur une variable :
