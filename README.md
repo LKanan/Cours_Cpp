@@ -16,3 +16,13 @@ Donc, la deuxième ligne simplifie l'écriture du code, mais elle doit être uti
 4. **`endl`** crée un retour à la ligne dans la console.
 
 Ex: `cout << "Hello world!" << endl;`
+
+## 2. Déclarez une variable
+
+Pour déclarer une variable, il faut écrire un code qui indique, dans l'ordre :
+
+1.Son type.  
+2. Son nom.  
+3. Et la valeur qu'elle contient :
+
+_`TYPE NOM(VALEUR);`_
