@@ -116,3 +116,90 @@ int main(){
     ajoutDeux(a);
 }
 ```
+## 7. Utilisez plusieurs fichiers
+1. **Créez un fichier source et un fichier d'en-tête**  
+Pour faire les choses proprement, il ne faut pas un mais deux fichiers :
+
+- Un **fichier source** dont l'extension est **`.cpp`**  : il contient le code source de la fonction.  
+Le compilateur a besoin de savoir que les fichiers `.cpp` et `.hpp` ont un lien entre eux. Il faut donc commencer le fichier par la ligne suivante :
+
+```cpp
+#include "calcul.hpp"
+```
+Ex: 
+```cpp
+#include "calcul.hpp"
+
+int ajouteDeux(int nombreRecu){
+    int valeur(nombreRecu + 2);
+    return valeur;
+}
+```
+
+- Un **fichier d'en-tête** dont l'extension est **`.hpp `** : il contient uniquement la description de la fonction, ce qu'on appelle le prototype de la fonction.  
+**Le prototype de la fonction** c'est la première ligne de la fonction, celle qui vient avant les accolades.  
+**Les valeurs par défaut si elles existent sont spécifiées uniquement dans le prototype, pas dans la définition de la fonction !  
+Dans ce cas les paramètres facultatifs ou ceux qui ont eu des valeurs par defaut doivent obligatoirement se trouver à la fin (à droite), sinon il y aura erreur**
+```cpp
+#ifndef CALCUL_HPP
+#define CALCUL_HPP
+
+int ajouteDeux(int nombreRecu);
+
+#endif // !CALCUL_HPP
+```
+Ces lignes sont là pour empêcher le compilateur d'inclure plusieurs fois ce fichier. Le compilateur n'est parfois pas très malin, et risque de tourner en rond. Cette astuce évite donc de se retrouver dans cette situation.  
+**Il ne faut donc pas toucher ces lignes et surtout, écrire tout le code entre la deuxième et la troisième.**  
+Le texte _`CALCUL_HPP`_  n'est pas un mot clé mais il nous permet de faire la différence entre les fichiers `.hpp` en leur donnant un genre d'identifiant unique.  
+Si vous utilisez des variables plus compliquées en argument, comme des  string, il faut ajouter la ligne d'inclusion `#include <string>` avant le prototype :
+```cpp
+#ifndef MATH_H_INCLUDED
+#define MATH_H_INCLUDED
+
+#include <string>
+
+void afficherMessage(std::string message);
+
+#endif // MATH_H_INCLUDED
+```
+L'autre élément important est l'ajout de **`std::`**  devant le mot `string`  . Il s'agit de la marque d'un espace de nom.
+
+`std` apparaît dans tous nos fichiers source via la ligne _`using namespace std`_  . Comme il n'y a pas de telle ligne ici (**et qu'il est très vivement déconseillé de la mettre dans un fichier d'en-tête**), il nous faut utiliser le nom complet du type string   , qui est **`std::string`** 
+
+2. **Le fichier qui va utiliser la fonction**  
+
+Il faut donc ajouter au début de notre programme la ligne suivante:  
+**`#include "math.hpp"`**  
+**Si on ne le fait pas, le compilateur ne saura pas où trouver la fonction ajouteDeux() lorsqu'on essaiera de l'utiliser par exemple.**  
+Ce qui donnerai:  
+
+```cpp
+#include <iostream>
+
+#include "math.hpp"
+
+using namespace std;
+
+
+int main()
+
+{
+
+    int a(2),b(2);
+
+    cout << "Valeur de a : " << a << endl;
+
+    cout << "Valeur de b : " << b << endl;
+
+    b = ajouteDeux(a);                     //Appel de la fonction
+
+    cout << "Valeur de a : " << a << endl;
+
+    cout << "Valeur de b : " << b << endl;
+
+
+    return 0;
+
+}
+```
+
